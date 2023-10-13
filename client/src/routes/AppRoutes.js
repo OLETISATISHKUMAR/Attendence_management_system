@@ -4,9 +4,11 @@ import Home from "../pages/Home"
 import Signin from '../pages/Signin'
 import SignUp from '../pages/SignUp'
 import ForgotPassword from '../pages/ForgotPassword'
+import Header from '../components/Header'
 function AppRoutes() {
   return (
     <div>
+      <Header />
        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
