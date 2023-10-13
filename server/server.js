@@ -1,11 +1,19 @@
-const express = require('express')
-const app = express()
-const port = 8000
+const app = require('./app');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
-app.get('/', (req, res) => {
-  res.send('Hello Google!')
-})
+const PORT = process.env.PORT || 8000;
+const dbUrl = process.env.MONGODB_URL;
 
-app.listen(port, () => {
-  console.log(`Server is Running on port ${port}`)
-})
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('MongoDB connected successfully');
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}).catch((err) => {
+  console.log('Database not connected', err);
+});
