@@ -11,7 +11,7 @@ function Home() {
           </div>
           <div className="w-1/2 p-10">
             <h1 className="text-3xl font-semibold mb-10 text-center">
-              Attendance Management System
+              Login as 
             </h1>
             <div className="space-x-2 flex">
               <button
